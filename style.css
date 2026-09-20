@@ -68,3 +68,6 @@ button.equal {
 button.equal:hover {
     background-color: #1e7e34;
 }
+button:active {
+    transform: scale(0.95);
+}
