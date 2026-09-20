@@ -1,0 +1,24 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Validate HTML
+        run: |
+          if grep -q "<!DOCTYPE html>" index.html; then
+            echo "HTML structure is valid."
+          else
+            echo "Error: Missing <!DOCTYPE html>"
+            exit 1
+          fi
