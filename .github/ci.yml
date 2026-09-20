@@ -1,0 +1,48 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Validate HTML Code
+      run: |
+        if grep -q "<!DOCTYPE html>" index.html; then
+          echo "HTML structure validated successfully."
+        else
+          echo "HTML check failed: Missing <!DOCTYPE html>"
+          exit 1
+        fi
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Validate HTML Code
+      run: |
+        if grep -q "<!DOCTYPE html>" index.html; then
+          echo "HTML structure validated successfully."
+        else
+          echo "HTML check failed: Missing <!DOCTYPE html>"
+          exit 1
+        fi
