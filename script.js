@@ -16,3 +16,12 @@ function calculateResult() {
         display.value = 'Error';
     }
 }
+document.addEventListener('keydown', (event) => {
+    if (!isNaN(event.key) || ['+', '-', '*', '/'].includes(event.key)) {
+        appendValue(event.key);
+    } else if (event.key === 'Enter') {
+        calculateResult();
+    } else if (event.key === 'Escape') {
+        clearDisplay();
+    }
+});
